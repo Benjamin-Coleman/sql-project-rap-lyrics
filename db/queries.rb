@@ -38,3 +38,13 @@ def artist_with_most_mentions
 	SQL
 	db.execute(sql)
 end
+
+def year_with_most_mentions
+	sql = <<-SQL
+	SELECT album_release_date FROM politician_rap
+	GROUP BY album_release_date
+	ORDER BY COUNT(*)
+	DESC LIMIT 1
+	SQL
+	db.execute(sql)
+end
